@@ -8,15 +8,20 @@ tags:
 ---
 USE THE ARROW KEYS TO TURN LEFT AND RIGHT
 ===
-title: Bicycle
+title: AntWhere
 tags:
 ---
-Some kid's bicycle. Made of two wheels.
+"Hey, are you going to the train station?"
 ===
-title: Ant1
+title: AntStone
 tags:
 ---
-"Are you going to the train station?"
+"Can you help me move the rock away? It's killing my back."
+===
+title: ConstructionSite
+tags:
+---
+A fragment of a construction site map.
 ===
 title: Ant2
 tags:
@@ -24,8 +29,34 @@ tags:
 "The train station? Just two more turns and you're there.
 ===
 
-title: AntBicycle
+title: Furniture
 tags:
 ---
-A vehicle is made of two wheels.
+These used to belong to someone's house.
 ===
+
+title: Ladder
+tags:
+---
+A ladder that leads to nowhere.
+===
+title: Fractal
+tags:
+---
+A fractal is created from the chaos of dynamic systems.
+
+===
+
+title: Jaywalk
+tags:
+---
+"You sure you're gonna jaywalk with us? We don't fear death, but you do."
+
+===
+title: MagicSquare
+tags:
+---
+"This is a scrambled magic square. In the original game, every row, column, and diagonal adds up to one same number."
+
+===
+
