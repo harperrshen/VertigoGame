@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Yarn.Unity;
+using System.Linq;
 
 public class BubbleDialogueView : DialogueViewBase
 {
@@ -11,6 +12,7 @@ public class BubbleDialogueView : DialogueViewBase
     public float lettersPerSecond = 20f;
 
     private Dictionary<Transform, GameObject> activeBubbles = new Dictionary<Transform, GameObject>();
+    private HashSet<Transform> validDialogueSources = new HashSet<Transform>();
 
     private Transform currentSpeakerTransform = null;
     private Coroutine currentTypewriterEffect;
@@ -98,10 +100,14 @@ public class BubbleDialogueView : DialogueViewBase
     
     private void TryStartNextQueuedDialogue()
     {
-        if (dialogueQueue.Count > 0)
+         while (dialogueQueue.Count > 0)
         {
             var nextDialogue = dialogueQueue.Dequeue();
-            StartBubbleDialogue(nextDialogue.speaker, nextDialogue.nodeName, nextDialogue.animType);
+            if (validDialogueSources.Contains(nextDialogue.speaker))
+            {
+                StartBubbleDialogue(nextDialogue.speaker, nextDialogue.nodeName, nextDialogue.animType);
+                return;
+            }
         }
     }
 
@@ -110,5 +116,24 @@ public class BubbleDialogueView : DialogueViewBase
         Debug.LogWarning("BubbleDialogueView doesn't support options yet!");
         onOptionSelected(0);
     }
+
+    public void MarkDialogueSourceValid(Transform speaker)
+    {
+        validDialogueSources.Add(speaker);
+    }
+
+    public void MarkDialogueSourceInvalid(Transform speaker)
+    {
+        validDialogueSources.Remove(speaker);
+
+        // If there's an active bubble, destroy it too
+        StopBubbleDialogue(speaker);
+
+        // Remove any queued dialogue by that speaker
+        dialogueQueue = new Queue<(Transform, string, BubbleAnimationType)>(
+            dialogueQueue.Where(d => d.speaker != speaker)
+        );
+    }
+
     
 }

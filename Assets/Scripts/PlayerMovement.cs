@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isHoldingMouse = false;
 
-            if (mouseHoldTimer < clickThreshold && !hasStepped)
+            if (mouseHoldTimer < clickThreshold && !hasStepped && !IsObstacleInFront())
             {
                 PerformStep();
             }
@@ -131,35 +131,35 @@ public class PlayerMovement : MonoBehaviour
         if (IsObstacleInFront())
         return; 
 
-        transform.position += transform.up * stepDistance;
+        // transform.position += transform.up * stepDistance;
 
-        if (isLeftNext)
-        {
-            TriggerFootStep(leftFoot, "StepLeft");
-            TriggerFootStep(rightFoot, "StepLeft");
-        }
-        else
-        {
-            TriggerFootStep(leftFoot, "StepRight");
-            TriggerFootStep(rightFoot, "StepRight");
-        }
+        // if (isLeftNext)
+        // {
+        //     TriggerFootStep(leftFoot, "StepLeft");
+        //     TriggerFootStep(rightFoot, "StepLeft");
+        // }
+        // else
+        // {
+        //     TriggerFootStep(leftFoot, "StepRight");
+        //     TriggerFootStep(rightFoot, "StepRight");
+        // }
 
-        isLeftNext = !isLeftNext;
-        hasStepped = true;
+        // isLeftNext = !isLeftNext;
+        // hasStepped = true;
     }
 
     private void PerformStep(bool leftTurn)
     {
-        if (leftTurn)
-        {
-            TriggerFootStep(leftFoot, "StepLeft");
-            TriggerFootStep(rightFoot, "StepLeft");
-        }
-        else
-        {
-            TriggerFootStep(leftFoot, "StepRight");
-            TriggerFootStep(rightFoot, "StepRight");
-        }
+        // if (leftTurn)
+        // {
+        //     TriggerFootStep(leftFoot, "StepLeft");
+        //     TriggerFootStep(rightFoot, "StepLeft");
+        // }
+        // else
+        // {
+        //     TriggerFootStep(leftFoot, "StepRight");
+        //     TriggerFootStep(rightFoot, "StepRight");
+        // }
     }
 
     private void SetWalkingAnimation(bool walking)

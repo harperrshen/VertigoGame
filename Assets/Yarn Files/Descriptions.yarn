@@ -11,7 +11,12 @@ USE THE ARROW KEYS TO TURN LEFT AND RIGHT
 title: AntWhere
 tags:
 ---
-"Hey, are you going to the train station?"
+"Heading to the train station? It's just two turns from here."
+===
+title: AntMoreTurns
+tags:
+---
+"Sorry, my mistake. The train station is actually two more turns away."
 ===
 title: AntStone
 tags:
@@ -22,11 +27,6 @@ title: ConstructionSite
 tags:
 ---
 A fragment of a construction site map.
-===
-title: Ant2
-tags:
----
-"The train station? Just two more turns and you're there.
 ===
 
 title: Furniture
@@ -59,4 +59,38 @@ tags:
 "This is a scrambled magic square. In the original game, every row, column, and diagonal adds up to one same number."
 
 ===
+title: Saturn
+tags:
+---
+The rings of Saturn are fragments of a former moon. 
+
+===
+
+title: Saturn2
+tags:
+---
+It got torn apart by the planet's gravity when it got too close.
+
+===
+
+title: Maze
+tags:
+---
+The image of a labyrinth, ripped from the back pages of a local map.
+
+===
+
+title: Mourning
+tags:
+---
+"Please don't stare."
+===
+
+title: DeadRat
+tags:
+---
+A dead rat.
+===
+
+
 

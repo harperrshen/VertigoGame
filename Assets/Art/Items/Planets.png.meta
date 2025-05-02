@@ -100,12 +100,12 @@ TextureImporter:
       name: Planets_0
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 1376
-        width: 571
-        height: 811
+        x: 1329
+        y: 1754
+        width: 382
+        height: 378
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -113,6 +113,27 @@ TextureImporter:
       bones: []
       spriteID: 25dea95baf11e465eb2ee2aeff3a98c6
       internalID: 466406313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Planets_1
+      rect:
+        serializedVersion: 2
+        x: 1541
+        y: 1401
+        width: 260
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c63ec16f5ce194735b40d05c8718fa73
+      internalID: 226131816
       vertices: []
       indices: 
       edges: []
@@ -129,6 +150,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Planets_0: 466406313
+      Planets_1: 226131816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
