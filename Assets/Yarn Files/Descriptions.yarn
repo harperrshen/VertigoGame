@@ -83,7 +83,7 @@ The image of a labyrinth, ripped from the back pages of a local map.
 title: Mourning
 tags:
 ---
-"Please don't stare."
+"Please don't stare..."
 ===
 
 title: DeadRat
@@ -92,5 +92,68 @@ tags:
 A dead rat.
 ===
 
+title: AntFollow
+tags:
+---
+"Follow us carefully from here on."
+===
+title: AntGlass
+tags:
+---
+"When you look closely enough, doesn't everything falls into fragments?
+===
+
+title: AntGlass2
+tags:
+---
+"And fragmentation gives way to the uncanny."
+===
+title: GermanWord
+tags:
+---
+"In German, we call it the 'unhomely'."
+===
+
+title: AntLost
+tags:
+---
+"It's easy to get lost in all the turns and detours."
+===
+
+title: AntGuide
+tags:
+---
+"Follow our trail. We'll guide you through the maze."
+===
 
 
+title: AntMelancholia
+tags:
+---
+"Be aware, the signs of melancholia will lead you astray."
+===
+
+title: AntFear
+tags:
+---
+"Are you afraid of ants?"
+===
+
+
+title: Vortex
+tags:
+---
+A vortex is a self-repeating motion of agitation.
+===
+
+title: Vortex2
+tags:
+---
+A commotion.
+===
+
+title: Vortex3
+tags:
+---
+A vertigo.
+===
