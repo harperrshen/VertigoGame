@@ -40,6 +40,12 @@ tags:
 ---
 A ladder that leads to nowhere.
 ===
+
+title: Window
+tags:
+---
+What's the symbolism of the window?
+===
 title: Fractal
 tags:
 ---
@@ -100,7 +106,7 @@ tags:
 title: AntGlass
 tags:
 ---
-"When you look closely enough, doesn't everything fall into fragments?
+"When you look closely enough, doesn't everything fall into fragments?"
 ===
 
 title: AntGlass2
@@ -130,7 +136,7 @@ tags:
 title: AntMelancholia
 tags:
 ---
-"Be aware, the signs of melancholia will lead you astray."
+"Be careful with the familiar signs. They can lead you astray."
 ===
 
 title: AntFear
@@ -157,3 +163,93 @@ tags:
 ---
 A vertigo.
 ===
+
+title: trainDelayed
+tags:
+---
+"I don't think the train is ever coming. I've been waiting thirty-five minutes straight."
+===
+title: trainDelayed1
+tags:
+---
+"What happened?"
+===
+title: trainDelayed2
+tags:
+---
+"...I think it was a train accident."
+===
+title: trainConversation
+tags:
+---
+"So… did someone get hit?"
+===
+title: trainConversation2
+tags:
+---
+"Didn't hear anything in the news."
+===
+title: trainConversation3
+tags:
+---
+"Isn't it kind of dangerous to be walking this close to the tracks?"
+===
+title: trainConversation4
+tags:
+---
+"It's fine. I's not like any train is coming."
+===
+title: trainConversation5
+tags:
+---
+"Where's the wreckage, then? Must've derailed somewhere."
+===
+title: trainConversation6
+tags:
+---
+"Maybe it was a ghost train."
+===
+
+title: trainConversation7
+tags:
+---
+"It's hard not to think about the possibility of destruction sometimes, isn't it?"
+===
+title: trainConversation8
+tags:
+---
+"How things pile up into a giant mass of debris before you even notice."
+===
+
+title: trainConversation9
+tags:
+---
+"And when you start to notice it… that's when you become someone they call 'melancholic'."
+===
+
+
+// title: trainConversation7
+// tags:
+// ---
+// "Where do people go when they die?"
+// ===
+// title: trainConversation8
+// tags:
+// ---
+// "Where do people go when they're still alive, anyway?"
+// ===
+// title: trainConversation9
+// tags:
+// ---
+// "I don't know. I guess they go to the station… and find out the train never comes."
+// ===
+// title: trainConversation10
+// tags:
+// ---
+// "So then what?"
+// ===
+// title: trainConversation12
+// tags:
+// ---
+// "They follow the ants."
+// ===
