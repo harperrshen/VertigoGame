@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 2f;
     public float stepDistance = 1f;
-    public float rotationSpeed = 360f;
+    public float rotationSpeed = 300f;
     public float clickThreshold = 0.2f;
 
     [Header("Foot Animator Groups")]
@@ -41,11 +41,17 @@ public class PlayerMovement : MonoBehaviour
     private float mouseHoldTimer = 0f;
     private bool hasStepped = false;
     private bool isLeftNext = true;
+    public bool isEnding = false;
+    public event System.Action OnPlayerTurnedLeft;
+
+    private float lastZRotation;
 
     private void Start()
     {
         targetRotation = transform.rotation;
+        lastZRotation = transform.eulerAngles.z;
     }
+
 
     private void Update()
     {
@@ -56,8 +62,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleInput()
     {
-         if (isBeingPushedBack)
-        return; 
+        if (isEnding || isBeingPushedBack)
+        return;
 
         if (!isRotating)
         {
@@ -87,15 +93,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (mouseHoldTimer < clickThreshold && !hasStepped && !IsObstacleInFront())
             {
-                PerformStep();
+                //PerformStep();
             }
         }
     }
 
     private void HandleMove()
     {
-         if (isBeingPushedBack)
-        return; 
+        if (isEnding || isBeingPushedBack)
+        return;
 
         if (isHoldingMouse && mouseHoldTimer >= clickThreshold && !isRotating && !IsObstacleInFront())
         {
@@ -124,6 +130,14 @@ public class PlayerMovement : MonoBehaviour
             transform.rotation = targetRotation;
             isRotating = false;
         }
+        float currentZ = transform.eulerAngles.z;
+        float angleDelta = Mathf.DeltaAngle(lastZRotation, currentZ);
+        lastZRotation = currentZ;
+
+        if (Mathf.Abs(angleDelta) > 80f && angleDelta > 0f)
+        {
+            OnPlayerTurnedLeft?.Invoke(); // Notify anyone listening
+        }
     }
 
     private void PerformStep()
@@ -148,21 +162,21 @@ public class PlayerMovement : MonoBehaviour
         // hasStepped = true;
     }
 
-    private void PerformStep(bool leftTurn)
+    public void PerformStep(bool leftTurn)
     {
-        // if (leftTurn)
-        // {
-        //     TriggerFootStep(leftFoot, "StepLeft");
-        //     TriggerFootStep(rightFoot, "StepLeft");
-        // }
-        // else
-        // {
-        //     TriggerFootStep(leftFoot, "StepRight");
-        //     TriggerFootStep(rightFoot, "StepRight");
-        // }
+        if (leftTurn)
+        {
+            TriggerFootStep(leftFoot, "StepLeft");
+            TriggerFootStep(rightFoot, "StepLeft");
+        }
+        else
+        {
+            TriggerFootStep(leftFoot, "StepRight");
+            TriggerFootStep(rightFoot, "StepRight");
+        }
     }
 
-    private void SetWalkingAnimation(bool walking)
+    public void SetWalkingAnimation(bool walking)
     {
         SetFootWalking(leftFoot, walking);
         SetFootWalking(rightFoot, walking);
@@ -253,6 +267,14 @@ public class PlayerMovement : MonoBehaviour
 
         isBeingPushedBack = false;
         SetWalkingAnimation(false);
+    }
+    public void ForceRotate(Quaternion target)
+    {
+        targetRotation = target;
+        isRotating = true;
+
+        // Optionally trigger animation
+        PerformStep(true); // Reuses left-step animation for visual feedback
     }
 
 }
