@@ -32,7 +32,7 @@ A fragment of a construction site map.
 title: Furniture
 tags:
 ---
-These used to belong to someone's house.
+These used to belong in someone's house.
 ===
 
 title: Ladder
@@ -136,7 +136,7 @@ tags:
 title: AntMelancholia
 tags:
 ---
-"Be careful with the familiar signs. They can lead you astray."
+"Be careful with the homely signs. They can lead you astray."
 ===
 
 title: AntFear
@@ -238,5 +238,17 @@ tags:
 title: Rain
 tags:
 ---
-"In my childhood dreams, it always was raining."
+"It was always raining in my childhood dreams."
+===
+
+title: Harper
+tags:
+---
+"Made by Harper Shen."
+===
+
+title: Game
+tags:
+---
+"This is a game abot ants, melancholia, and feverish childhood visions."
 ===

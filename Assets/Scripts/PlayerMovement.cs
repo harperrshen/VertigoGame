@@ -35,6 +35,13 @@ public class PlayerMovement : MonoBehaviour
     public float pushbackSpeed = 2f;
     private bool isBeingPushedBack = false;
 
+    [Header("Footstep Audio")]
+    public AudioSource footstepAudioSource;
+    public AudioClip defaultFootstepClip;
+    public float footstepInterval = 0.4f; // adjust this in Inspector
+
+    private float footstepTimer = 0f;
+
     private Quaternion targetRotation;
     private bool isRotating = false;
     private bool isHoldingMouse = false;
@@ -50,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     {
         targetRotation = transform.rotation;
         lastZRotation = transform.eulerAngles.z;
+        Cursor.visible = false; // Hides the cursor
     }
 
 
@@ -60,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
         HandleRotate();
     }
 
+    private bool hasStartedStepping = false; // for instant first step sound
     private void HandleInput()
     {
         if (isEnding || isBeingPushedBack)
@@ -107,15 +116,38 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.position += transform.up * moveSpeed * Time.deltaTime;
             SetWalkingAnimation(true);
+
+            footstepTimer += Time.deltaTime;
+            if (!hasStartedStepping)
+            {
+                PlayFootstepSound();
+                hasStartedStepping = true;
+                footstepTimer = 0f;
+            }
+            else if (footstepTimer >= footstepInterval)
+            {
+                PlayFootstepSound();
+                footstepTimer = 0f;
+            }
         }
-        else if (!isRotating && !isHoldingMouse)
+        else
         {
             SetWalkingAnimation(false);
+            footstepTimer = 0f; 
+            hasStartedStepping = false;
         }
 
         if (isHoldingMouse)
         {
             mouseHoldTimer += Time.deltaTime;
+        }
+    }
+
+    private void PlayFootstepSound()
+    {
+        if (footstepAudioSource != null && defaultFootstepClip != null)
+        {
+            footstepAudioSource.PlayOneShot(defaultFootstepClip);
         }
     }
 
@@ -174,6 +206,8 @@ public class PlayerMovement : MonoBehaviour
             TriggerFootStep(leftFoot, "StepRight");
             TriggerFootStep(rightFoot, "StepRight");
         }
+        
+        PlayFootstepSound();
     }
 
     public void SetWalkingAnimation(bool walking)
