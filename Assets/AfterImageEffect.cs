@@ -14,7 +14,7 @@ public class AfterImageEffect : MonoBehaviour
 
     [Header("Optimization")]
     public Transform player;
-    public float updateDistance = 10f;
+    public float updateDistance = 30f;
     public float updateInterval = 0.1f;
 
     private GameObject afterImage;
@@ -48,7 +48,7 @@ public class AfterImageEffect : MonoBehaviour
 
     private void Update()
     {
-        if (player != null && Vector3.Distance(transform.position, player.position) > updateDistance)
+        if (player != null && Vector2.Distance(new Vector2(transform.position.x, transform.position.y), new Vector2(player.position.x, player.position.y)) > updateDistance)
             return;
 
         timer += Time.deltaTime;
