@@ -13,11 +13,10 @@ public class VertigoTrigger : MonoBehaviour
         if (collision.CompareTag("Player") && vertigoFeet != null && !vertigoFeet.activeSelf) 
         {
             vertigoFeet.SetActive(true);
-
-            if(afterImage!=null && afterImage.activeSelf)
-            {
-                afterImage.SetActive(false);
-            }
+        }
+        if(collision.CompareTag("Player") &&afterImage!=null && afterImage.activeSelf)
+        {
+            afterImage.SetActive(false);
         }
     }
 }
